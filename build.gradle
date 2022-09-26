@@ -2,9 +2,8 @@ plugins {
 //    id "org.springframework.boot" version "2.7.2"
 //    id "io.spring.dependency-management" version "1.0.12.RELEASE"
     id "java"
+    id "scala"
 }
-
-group = "com.mpf.hadoop"
 
 java {
     toolchain {
@@ -17,26 +16,24 @@ repositories {
 }
 
 dependencies {
-    // Logging
-    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
-
     implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
-    implementation 'org.apache.hadoop:hadoop-common:3.3.4'
-    implementation 'org.apache.hadoop:hadoop-hdfs:3.3.4'
-    implementation 'org.apache.hadoop:hadoop-client:3.3.4'
-    implementation 'org.apache.hadoop:hadoop-mapreduce-client-core:3.3.4'
+    implementation 'org.apache.hadoop:hadoop-hdfs:3.2.4'
+    implementation 'org.apache.hadoop:hadoop-client:3.2.4'
 
-    compileOnly 'org.apache.spark:spark-core_2.13:3.3.0'
-    compileOnly 'org.apache.spark:spark-hive_2.13:3.3.0'
-    compileOnly 'org.apache.spark:spark-sql_2.13:3.3.0'
+    implementation 'org.apache.spark:spark-hive_2.13:3.2.2'
+
+    // Scala
+    implementation 'org.scala-lang:scala-compiler:2.13.9'
+    testImplementation 'org.scalatest:scalatest_2.13:3.2.13'
 
 //    // Spring
 //    implementation "org.springframework.boot:spring-boot-starter"
 //    implementation "org.springframework.boot:spring-boot-starter-web"
 //    implementation "org.springframework.boot:spring-boot-starter-validation"
-//
+//    // Logging
+//    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
+//    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
 //    // Testing
 //    testImplementation "org.springframework.boot:spring-boot-starter-test"
 //    testImplementation "org.testcontainers:testcontainers:1.17.3"

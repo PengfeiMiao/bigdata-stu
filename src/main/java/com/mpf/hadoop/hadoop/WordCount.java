@@ -27,10 +27,10 @@ public class WordCount {
     public static void main(String[] args) throws Exception {
         // 指定hdfs相关的参数
         Configuration conf = new Configuration();
-//         conf.set("fs.defaultFS", "hdfs://hadoop02:9000");
+//        conf.set("fs.defaultFS", "hdfs://hadoop02:9000");
 //        System.setProperty("HADOOP_HOME", "C:\\officesoft\\hadoop\\hadoop-3.1.3");
-        System.setProperty("hadoop.home.dir", "C:\\officesoft\\hadoop\\hadoop-3.1.3");
-        System.setProperty("HADOOP_USER_NAME", "hadoop");
+//        System.setProperty("hadoop.home.dir", "/opt/homebrew/Cellar/hadoop/3.3.4");
+//        System.setProperty("HADOOP_USER_NAME", "pengfeidembp");
 
         // 这是高可用的集群的配置文件。如果不是高可用集群，请自行替换配置文件
 //        conf.addResource("hdfs_config/core-site.xml");
@@ -68,8 +68,8 @@ public class WordCount {
         // job.setPartitionerClass(HashPartitioner.class);
 
         // 如果MapReduce程序在Eclipse中，运行，也可以读取Windows系统本地的文件系统中的数据
-        Path inputPath = new Path("wordcount\\input");
-        Path outputPath = new Path("wordcount\\output");
+        Path inputPath = new Path("./wordcount/input");
+        Path outputPath = new Path("./wordcount/output");
 
         // 设置该MapReduce程序的ReduceTask的个数
         // job.setNumReduceTasks(3);

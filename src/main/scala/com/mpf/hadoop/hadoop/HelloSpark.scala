@@ -5,4 +5,3 @@ object HelloSpark {
     println("Hello Spark!")
   }
 }
-
