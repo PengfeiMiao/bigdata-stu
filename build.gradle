@@ -4,7 +4,7 @@ plugins {
     id "java"
 }
 
-group = "com.mpf.bigdata"
+group = "com.mpf.hadoop"
 
 java {
     toolchain {
@@ -20,6 +20,17 @@ dependencies {
     // Logging
     implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
     implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+    implementation 'org.apache.hadoop:hadoop-common:3.3.4'
+    implementation 'org.apache.hadoop:hadoop-hdfs:3.3.4'
+    implementation 'org.apache.hadoop:hadoop-client:3.3.4'
+    implementation 'org.apache.hadoop:hadoop-mapreduce-client-core:3.3.4'
+
+    compileOnly 'org.apache.spark:spark-core_2.13:3.3.0'
+    compileOnly 'org.apache.spark:spark-hive_2.13:3.3.0'
+    compileOnly 'org.apache.spark:spark-sql_2.13:3.3.0'
 
 //    // Spring
 //    implementation "org.springframework.boot:spring-boot-starter"
