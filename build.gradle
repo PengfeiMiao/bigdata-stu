@@ -19,7 +19,9 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
     implementation 'org.apache.hadoop:hadoop-hdfs:3.2.4'
-    implementation 'org.apache.hadoop:hadoop-client:3.2.4'
+    implementation('org.apache.hadoop:hadoop-client:3.2.4') {
+        exclude group: 'org.slf4j'
+    }
 
     implementation 'org.apache.spark:spark-hive_2.13:3.2.2'
 
@@ -31,12 +33,14 @@ dependencies {
 //    implementation "org.springframework.boot:spring-boot-starter"
 //    implementation "org.springframework.boot:spring-boot-starter-web"
 //    implementation "org.springframework.boot:spring-boot-starter-validation"
-//    // Logging
-//    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
-//    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+
 //    // Testing
 //    testImplementation "org.springframework.boot:spring-boot-starter-test"
 //    testImplementation "org.testcontainers:testcontainers:1.17.3"
 //    testImplementation "org.testcontainers:postgresql:1.17.3"
 //    testImplementation "org.testcontainers:junit-jupiter:1.17.3"
+}
+
+test {
+    useJUnitPlatform()
 }
