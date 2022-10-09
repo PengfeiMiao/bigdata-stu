@@ -8,6 +8,7 @@ import org.apache.hadoop.fs.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 
@@ -16,6 +17,8 @@ public class HdfsClient {
 //    private static final Logger log = LoggerFactory.getLogger(HdfsClient.class);
 
     public FileSystem fs;
+
+    public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public HdfsClient() {
         this.fs = getConn();
@@ -102,9 +105,9 @@ public class HdfsClient {
                 result.append("\nowner: ").append(fileStatus.getOwner());
                 result.append("\ngroup: ").append(fileStatus.getGroup());
                 result.append("\nlen: ").append(fileStatus.getLen());
-                result.append("\nmodificationTime: ").append(fileStatus.getModificationTime());
+                result.append("\nmodificationTime: ").append(sdf.format(fileStatus.getModificationTime()));
                 result.append("\nreplication: ").append(fileStatus.getReplication());
-                result.append("\nblockSize: ").append(fileStatus.getBlockSize());
+                result.append("\nblockSize: ").append(fileStatus.getBlockSize() / Math.pow(2, 20)).append("M");
                 // 获取块信息
                 BlockLocation[] blockLocations = fileStatus.getBlockLocations();
                 result.append("\nblockLocations: ").append(Arrays.toString(blockLocations));
